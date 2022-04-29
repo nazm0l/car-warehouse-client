@@ -1,16 +1,26 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import './Login.css'
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
+import "./Login.css";
 
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    console.log(email, password);
+    
+    signInWithEmailAndPassword(email, password);
   };
+
+  if (user) {
+      navigate('/')
+  }
 
   return (
     <div className="container mt-5">
@@ -40,23 +50,17 @@ const Login = () => {
         </Form>
 
         <p className="mt-3">
-        <Link
-          to="/reset"
-          className="text-danger text-decoration-none"
-        >
-          Forgotten password?
-        </Link>
-      </p>
+          <Link to="/reset" className="text-danger text-decoration-none">
+            Forgotten password?
+          </Link>
+        </p>
 
-      <p className="mt-3">
-        New Here?{" "}
-        <Link
-          to="/register"
-          className="text-primary text-decoration-none"
-        >
-          Register now
-        </Link>
-      </p>
+        <p className="mt-3">
+          New Here?{" "}
+          <Link to="/register" className="text-primary text-decoration-none">
+            Register now
+          </Link>
+        </p>
       </div>
     </div>
   );
