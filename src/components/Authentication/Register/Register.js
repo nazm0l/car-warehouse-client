@@ -17,7 +17,7 @@ const Register = () => {
       <h2 className="text-center fw-bold my-5">Register Now</h2>
       <div className="dw-25 mw-80 mx-auto">
         <Form onSubmit={handleRegister}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Control name="name" type="text" placeholder="Name" required />
           </Form.Group>
 
