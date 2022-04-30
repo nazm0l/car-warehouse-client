@@ -1,11 +1,20 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import auth from "../../../firebase.init";
 
 const ForgetPassword = () => {
-  const handleReset = (event) => {
+
+  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(
+    auth
+  );
+
+  const handleReset = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
-    console.log(email);
+    await sendPasswordResetEmail(email);
+    toast('Reset mail sent');
   };
 
   return (
