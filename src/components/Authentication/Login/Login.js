@@ -22,6 +22,15 @@ const Login = () => {
       navigate('/')
   }
 
+  if (loading) {
+    <p>Loading...</p>
+  }
+
+  let errorMessage;
+  if (error) {
+    errorMessage = <p className="text-danger">{error?.message}</p>;
+  }
+
   return (
     <div className="container mt-5">
       <h2 className="text-center my-3">Login</h2>
@@ -44,6 +53,7 @@ const Login = () => {
               required
             />
           </Form.Group>
+          {errorMessage}
           <Button className="w-100 fw-bold" variant="dark" type="submit">
             Login
           </Button>
@@ -61,6 +71,10 @@ const Login = () => {
             Register now
           </Link>
         </p>
+        {/* social login */}
+        <div>
+            <button>LogIn with Google</button>
+        </div>
       </div>
     </div>
   );

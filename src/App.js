@@ -11,6 +11,7 @@ import Header from './components/Shared/Header/Header';
 import Login from './components/Authentication/Login/Login';
 import Register from './components/Authentication/Register/Register';
 import ForgetPassword from './components/Authentication/ForgetPassword/ForgetPassword';
+import Blogs from './components/Blogs/Blogs';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/inventory' element={<Inventory></Inventory>}></Route>
         <Route path='/inventory/:id' element={<Inventory></Inventory>}></Route>
         <Route path='/about' element={<About></About>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/reset' element={<ForgetPassword></ForgetPassword>}></Route>

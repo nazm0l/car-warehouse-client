@@ -14,9 +14,6 @@ const Slider = () => {
             src={slider1}
             alt="First slide"
           />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
@@ -24,10 +21,6 @@ const Slider = () => {
             src={slider2}
             alt="Second slide"
           />
-
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
@@ -35,10 +28,6 @@ const Slider = () => {
             src={slider3}
             alt="Third slide"
           />
-
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-          </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
     </div>
