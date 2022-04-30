@@ -8,6 +8,7 @@ import {
 import auth from "../../../firebase.init";
 
 const Register = () => {
+  
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating, errorProfile] = useUpdateProfile(auth);

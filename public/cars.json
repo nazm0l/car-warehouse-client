@@ -1,0 +1,56 @@
+[
+    {
+      "_id": 1,
+      "picture": "https://i.ibb.co/wQW4Drv/Lamborgini.png",
+      "price": 750000,
+      "name": "Lamborghini Huracán",
+      "quantity": 75,
+      "supplier": "Nazmul Motors",
+      "description": "The latest revolutionary invention of Lamborgini"
+    },
+    {
+      "_id": 2,
+      "picture": "https://i.ibb.co/4Nf3dTN/Royals.png",
+      "price": 300000,
+      "name": "Rolls-Royce Ghost",
+      "quantity": 75,
+      "supplier": "Salman Motors",
+      "description": "Not only performance also look is good"
+    },
+    {
+      "_id": 3,
+      "picture": "https://i.ibb.co/Fqdpqby/McLaren.png",
+      "price": 488000,
+      "name": "McLaren Artura",
+      "quantity": 75,
+      "supplier": "Nazmul Automobile",
+      "description": "The modern aged crush. Speed up yourself"
+    },
+    {
+      "_id": 4,
+      "picture": "https://i.ibb.co/SVtKxLy/Ferrari.png",
+      "price": 9005000,
+      "name": "Ferrari 812 GTS",
+      "quantity": 75,
+      "supplier": "Karim Motors",
+      "description": "Best car ever in Ferrari"
+    },
+    {
+      "_id": 5,
+      "picture": "https://i.ibb.co/YyS0Qr1/Bugatti.png",
+      "price": 690,
+      "name": "Bugatti Divo",
+      "quantity": 75,
+      "supplier": "Nazmul Motors",
+      "description": "The sports car is specially for racing"
+    },
+    {
+      "_id": 6,
+      "picture": "https://i.ibb.co/bXCBKTR/BMW-i8.png",
+      "price": 950,
+      "name": "BMW X6 M Sports",
+      "quantity": 75,
+      "supplier": "Nazmul Motors",
+      "description": "Go to a family trip with royal car"
+    }
+  ]
