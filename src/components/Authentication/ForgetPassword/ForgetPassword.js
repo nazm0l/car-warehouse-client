@@ -17,6 +17,11 @@ const ForgetPassword = () => {
     toast('Reset mail sent');
   };
 
+  let errorMessage;
+  if (error) {
+    errorMessage = <p className="text-danger">{error?.message}</p>;
+  }
+
   return (
     <div className="container">
         <h2 className="text-center my-5">Reset Password</h2>
@@ -30,6 +35,7 @@ const ForgetPassword = () => {
             required
           />
         </Form.Group>
+        {errorMessage}
         <Button className="w-100 fw-bold" variant="dark" type="submit">
           Reset
         </Button>

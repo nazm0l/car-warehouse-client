@@ -8,9 +8,8 @@ import {
 import auth from "../../../firebase.init";
 
 const Register = () => {
-  
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, errorProfile] = useUpdateProfile(auth);
   const navigate = useNavigate();
 
@@ -22,8 +21,20 @@ const Register = () => {
 
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
-    navigate('/');
   };
+
+  if (user) {
+    navigate("/");
+  }
+
+  if (loading || updating) {
+    <p>Loading...</p>;
+  }
+
+  let errorMessage;
+  if (error || errorProfile) {
+    errorMessage = <p className="text-danger">{error?.message}</p>;
+  }
 
   return (
     <div className="container">
@@ -51,6 +62,7 @@ const Register = () => {
               required
             />
           </Form.Group>
+          {errorMessage}
           <Button className="w-100 fw-bold" variant="dark" type="submit">
             Register
           </Button>
