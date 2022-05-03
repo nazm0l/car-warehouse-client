@@ -13,7 +13,7 @@ const Inventory = () => {
   return (
     <div>
       <h2>Inventory</h2>
-      <div className="row container mx-auto">
+      <div className="row mx-auto container">
       {
           cars.map(car => <Items key={car._id} car={car}></Items>)
       }

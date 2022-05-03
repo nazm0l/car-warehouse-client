@@ -13,6 +13,7 @@ import Register from "./components/Authentication/Register/Register";
 import ForgetPassword from "./components/Authentication/ForgetPassword/ForgetPassword";
 import Blogs from "./components/Blogs/Blogs";
 import RequireAuth from "./components/Authentication/RequireAuth/RequireAuth";
+import SingleItem from "./components/SingleItem/SingleItem";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        <Route path="/inventory/:id" element={<Inventory></Inventory>}></Route>
+        <Route path="/inventory/:id" element={<SingleItem></SingleItem>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
