@@ -15,7 +15,18 @@ const SingleItem = () => {
   }, []);
 
   const handleQuantity = () =>{
-      console.log('click');
+      const quantity = car.quantity - 1;
+      const url = `http://localhost:5000/cars/${id}`;
+      fetch(url, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({quantity}),
+      })
+        .then((res) => res.json())
+        .then((result) => console.log(result));
+
   }
 
   return (
