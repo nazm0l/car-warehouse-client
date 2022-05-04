@@ -30,7 +30,7 @@ const Manage = ({car}) => {
         <td>{name}</td>
         <td>{price}</td>
         <td>{quantity}</td>
-        <button onClick={()=>handleDelete(_id)} className="btn btn-link text-danger">Delete</button>
+        <td><button onClick={()=>handleDelete(_id)} className="btn btn-link text-danger">Delete</button></td>
       </tr>
     </>
   );
