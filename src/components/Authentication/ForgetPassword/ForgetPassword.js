@@ -15,6 +15,7 @@ const ForgetPassword = () => {
     const email = event.target.email.value;
     await sendPasswordResetEmail(email);
     toast('Reset mail sent');
+    event.target.reset();
   };
 
   let errorMessage;

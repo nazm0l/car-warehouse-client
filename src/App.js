@@ -14,6 +14,8 @@ import ForgetPassword from "./components/Authentication/ForgetPassword/ForgetPas
 import Blogs from "./components/Blogs/Blogs";
 import RequireAuth from "./components/Authentication/RequireAuth/RequireAuth";
 import SingleItem from "./components/SingleItem/SingleItem";
+import AddItem from "./components/AddItem/AddItem";
+import ManageItem from "./components/ManageItem/ManageItem";
 
 function App() {
   return (
@@ -22,14 +24,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route
-          path="/inventory"
+          path="/inventory/:id"
           element={
             <RequireAuth>
-              <Inventory></Inventory>
+              <SingleItem></SingleItem>
             </RequireAuth>
           }
         ></Route>
-        <Route path="/inventory/:id" element={<SingleItem></SingleItem>}></Route>
+        <Route path="/inventory" element={<Inventory></Inventory>}></Route>
+        <Route path="/additem" element={<AddItem></AddItem>}></Route>
+        <Route path="/manage" element={<ManageItem></ManageItem>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>

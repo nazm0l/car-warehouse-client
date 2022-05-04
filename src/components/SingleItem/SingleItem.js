@@ -25,7 +25,9 @@ const SingleItem = () => {
         body: JSON.stringify({quantity}),
       })
         .then((res) => res.json())
-        .then((result) => console.log(result));
+        .then((result) => {
+            
+        });
 
   }
 
