@@ -12,7 +12,7 @@ const SingleItem = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setCar(data));
-  }, []);
+  }, [id, car]);
 
   const handleQuantity = () =>{
       const quantity = car.quantity - 1;
