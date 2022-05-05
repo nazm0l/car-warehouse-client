@@ -1,8 +1,12 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
 const AddItem = () => {
+
+  const [user] = useAuthState(auth);
   const handleAddItem = (e) => {
     e.preventDefault();
 
@@ -18,7 +22,8 @@ const AddItem = () => {
         description: description,
         price: price,
         supplier: supplier,
-        quantity: quantity
+        quantity: quantity,
+        email: user.email
     }
 
     fetch('http://localhost:5000/cars', {
