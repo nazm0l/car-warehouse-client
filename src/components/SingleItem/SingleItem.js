@@ -35,7 +35,7 @@ const SingleItem = () => {
     e.preventDefault();
     const add = e.target.addQuantity.value;
     
-    const quantity = car.quantity + parseInt(add);
+    const quantity = parseInt(car.quantity) + parseInt(add);
       const url = `http://localhost:5000/cars/${id}`;
       fetch(url, {
         method: "PUT",
