@@ -1,5 +1,6 @@
 import React from "react";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import useCars from "../../hooks/useCars";
 
 const ManageItem = () => {
@@ -38,17 +39,18 @@ const ManageItem = () => {
         </thead>
         <tbody>
           {cars.map((car) => (
-             <>
-             <tr>
+             <tr key={car._id}>
                <td>{car.name}</td>
                <td>{car.price}</td>
                <td>{car.quantity}</td>
                <td><button onClick={()=>handleDelete(car._id)} className="btn btn-link text-danger">Delete</button></td>
              </tr>
-           </>
           ))}
         </tbody>
       </Table>
+      <div className="container text-center mt-4">
+        <Link to='/additem'><button className="btn btn-dark w-25 py-2">Add new item</button></Link>
+      </div>
     </div>
   );
 };

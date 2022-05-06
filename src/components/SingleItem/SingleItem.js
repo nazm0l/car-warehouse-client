@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const SingleItem = () => {
   const { id } = useParams();
@@ -14,43 +15,43 @@ const SingleItem = () => {
       .then((data) => setCar(data));
   }, [id, car]);
 
-  const handleQuantityDecrement = () =>{
-      const quantity = car.quantity - 1;
-      const url = `http://localhost:5000/cars/${id}`;
-      fetch(url, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({quantity}),
-      })
-        .then((res) => res.json())
-        .then((result) => {
-            
-        });
+  const handleQuantityDecrement = () => {
+    const quantity = car.quantity - 1;
+    const url = `http://localhost:5000/cars/${id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ quantity }),
+    })
+      .then((res) => res.json())
+      .then((result) => {});
+    toast("Delivered");
+  };
 
-  }
-
-  const handleQuantityIncrement = (e) =>{
+  const handleQuantityIncrement = (e) => {
     e.preventDefault();
     const add = e.target.addQuantity.value;
-    
-    const quantity = parseInt(car.quantity) + parseInt(add);
-      const url = `http://localhost:5000/cars/${id}`;
-      fetch(url, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({quantity}),
-      })
-        .then((res) => res.json())
-        .then((result) => {
-            
-        });
-        e.target.reset();
+    if (add < 1) {
+      toast("Add a valid input");
+      return;
+    }
 
-  }
+    const quantity = parseInt(car.quantity) + parseInt(add);
+    const url = `http://localhost:5000/cars/${id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ quantity }),
+    })
+      .then((res) => res.json())
+      .then((result) => {});
+    e.target.reset();
+    toast("Added");
+  };
 
   return (
     <div className="container">
@@ -77,17 +78,40 @@ const SingleItem = () => {
           </ListGroup>
           <Card.Body>
             <button
-                onClick={handleQuantityDecrement}
-                className="btn btn-danger w-50 mt-3"
+              onClick={handleQuantityDecrement}
+              className="btn btn-danger w-50 mt-3"
             >
               Delivered
             </button>
-            <form onSubmit={handleQuantityIncrement} className="input-group my-3 w-75 mx-auto">
-                <input type="number" className="form-control" name="addQuantity" placeholder="Add quantity" aria-label="quantity" aria-describedby="button-addon2"/>
-                <div className="input-group-append">
-                    <button className="btn btn-success" type="submit" id="button-addon2">Add</button>
-                </div>
+            <form
+              onSubmit={handleQuantityIncrement}
+              className="input-group mt-3 mb-5 w-75 mx-auto"
+            >
+              <input
+                type="number"
+                className="form-control"
+                name="addQuantity"
+                placeholder="Add quantity"
+                aria-label="quantity"
+                aria-describedby="button-addon2"
+              />
+              <div className="input-group-append">
+                <button
+                  className="btn btn-success"
+                  type="submit"
+                  id="button-addon2"
+                >
+                  Add
+                </button>
+              </div>
             </form>
+            <div className="container text-center mt-5">
+              <Link to="/manage">
+                <button className="btn btn-dark w-25 py-2">
+                  Manage Inventories
+                </button>
+              </Link>
+            </div>
           </Card.Body>
         </Card>
       </div>

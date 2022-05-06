@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const MyItem = () => {
@@ -29,6 +30,7 @@ const MyItem = () => {
           const remaining = myItem.filter((item) => item._id !== id);
           setMyItem(remaining);
         });
+        toast('Deleted Successfully')
     }
   };
 
@@ -47,8 +49,7 @@ const MyItem = () => {
         </thead>
         <tbody>
           {myItem.map((item) => (
-            <>
-              <tr>
+              <tr key={item._id}>
                 <td>{item.name}</td>
                 <td>{item.price}</td>
                 <td>{item.quantity}</td>
@@ -61,7 +62,6 @@ const MyItem = () => {
                   </button>
                 </td>
               </tr>
-            </>
           ))}
         </tbody>
       </Table>
