@@ -14,7 +14,7 @@ const SingleItem = () => {
       .then((data) => setCar(data));
   }, [id, car]);
 
-  const handleQuantity = () =>{
+  const handleQuantityDecrement = () =>{
       const quantity = car.quantity - 1;
       const url = `http://localhost:5000/cars/${id}`;
       fetch(url, {
@@ -28,6 +28,27 @@ const SingleItem = () => {
         .then((result) => {
             
         });
+
+  }
+
+  const handleQuantityIncrement = (e) =>{
+    e.preventDefault();
+    const add = e.target.addQuantity.value;
+    
+    const quantity = car.quantity + parseInt(add);
+      const url = `http://localhost:5000/cars/${id}`;
+      fetch(url, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({quantity}),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+            
+        });
+        e.target.reset();
 
   }
 
@@ -56,17 +77,17 @@ const SingleItem = () => {
           </ListGroup>
           <Card.Body>
             <button
-                onClick={handleQuantity}
+                onClick={handleQuantityDecrement}
                 className="btn btn-danger w-50 mt-3"
             >
               Delivered
             </button>
-            <div className="input-group my-3 w-75 mx-auto">
-                <input type="number" className="form-control" placeholder="Add quantity" aria-label="quantity" aria-describedby="button-addon2"/>
+            <form onSubmit={handleQuantityIncrement} className="input-group my-3 w-75 mx-auto">
+                <input type="number" className="form-control" name="addQuantity" placeholder="Add quantity" aria-label="quantity" aria-describedby="button-addon2"/>
                 <div className="input-group-append">
-                    <button className="btn btn-success" type="button" id="button-addon2">Add</button>
+                    <button className="btn btn-success" type="submit" id="button-addon2">Add</button>
                 </div>
-            </div>
+            </form>
           </Card.Body>
         </Card>
       </div>
