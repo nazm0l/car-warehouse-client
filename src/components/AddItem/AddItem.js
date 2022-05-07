@@ -29,6 +29,7 @@ const AddItem = () => {
     fetch('http://localhost:5000/cars', {
         method: "POST",
         headers: {
+          'authorization':`${user.email} ${localStorage.getItem('accessToken')}`,
           "content-type": "application/json",
         },
         body: JSON.stringify(data),

@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Login.css";
 
@@ -23,11 +24,28 @@ const Login = () => {
   let from = location.state?.from?.pathname || "/";
 
   if (user) {
-    navigate(from, { replace: true });
+
+    const url = `http://localhost:5000/login`
+
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: user.email
+      }),
+      headers: {
+        "content-type": "application/json",
+      }
+    })
+    .then(res => res.json())
+    .then(data =>{
+      localStorage.setItem("accessToken", data.token)
+      navigate(from, { replace: true });
+    })
+
   }
 
   if (loading) {
-    <p>Loading...</p>;
+    <Loading></Loading>
   }
 
   let errorMessage;

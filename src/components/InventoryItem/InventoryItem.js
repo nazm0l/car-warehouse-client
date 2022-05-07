@@ -12,8 +12,8 @@ const InventoryItem = () => {
   }
 
   return (
-    <div>
-      <h2 className="text-center my-3">Inventory Item</h2>
+    <div style={{backgroundColor:"#F7F7F7"}} className="py-3">
+      <h2 className="text-center my-3 fw-bold">Inventory Item</h2>
       <div className="row container mx-auto">
         {cars.slice(0, 6).map((car) => (
             <div key={car._id} className="col-md-4 my-2" >

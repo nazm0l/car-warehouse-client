@@ -1,0 +1,103 @@
+[debug] [2022-05-06T20:59:48.417Z] ----------------------------------------------------------------------
+[debug] [2022-05-06T20:59:48.419Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HP\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-05-06T20:59:48.419Z] CLI Version:   10.6.0
+[debug] [2022-05-06T20:59:48.419Z] Platform:      win32
+[debug] [2022-05-06T20:59:48.419Z] Node Version:  v16.14.0
+[debug] [2022-05-06T20:59:48.420Z] Time:          Sat May 07 2022 02:59:48 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-05-06T20:59:48.420Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-06T20:59:48.485Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-06T20:59:48.486Z] > authorizing via signed-in user (nazmul0w1@gmail.com)
+[debug] [2022-05-06T20:59:48.486Z] [iam] checking project car-warehouse-b83ff for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-05-06T20:59:48.487Z] > refreshing access token with scopes: []
+[debug] [2022-05-06T20:59:48.488Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-05-06T20:59:48.947Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Fri, 06 May 2022 20:59:49 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-05-06T20:59:48.963Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/car-warehouse-b83ff:testIamPermissions [none]
+[debug] [2022-05-06T20:59:48.963Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/car-warehouse-b83ff:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-05-06T20:59:50.720Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/car-warehouse-b83ff:testIamPermissions 200
+[debug] [2022-05-06T20:59:50.720Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/car-warehouse-b83ff:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-05-06T20:59:50.721Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/car-warehouse-b83ff [none]
+[debug] [2022-05-06T20:59:51.677Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/car-warehouse-b83ff 200
+[debug] [2022-05-06T20:59:51.677Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/car-warehouse-b83ff {"projectId":"car-warehouse-b83ff","projectNumber":"745261246151","displayName":"car warehouse","name":"projects/car-warehouse-b83ff","resources":{"hostingSite":"car-warehouse-b83ff"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'car-warehouse-b83ff'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-05-06T20:59:51.684Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/car-warehouse-b83ff [none]
+[debug] [2022-05-06T20:59:52.638Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/car-warehouse-b83ff 200
+[debug] [2022-05-06T20:59:52.638Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/car-warehouse-b83ff {"projectId":"car-warehouse-b83ff","projectNumber":"745261246151","displayName":"car warehouse","name":"projects/car-warehouse-b83ff","resources":{"hostingSite":"car-warehouse-b83ff"},"state":"ACTIVE"}
+[debug] [2022-05-06T20:59:52.641Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/versions [none]
+[debug] [2022-05-06T20:59:52.641Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-05-06T20:59:54.877Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/versions 200
+[debug] [2022-05-06T20:59:54.877Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/versions {"name":"projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[car-warehouse-b83ff]: beginning deploy... 
+[info] i  hosting[car-warehouse-b83ff]: found 18 files in build 
+[debug] [2022-05-06T20:59:54.889Z] [hosting] uploading with 200 concurrency
+[debug] [2022-05-06T20:59:55.077Z] [hosting] hash cache [YnVpbGQ] stored for 18 files
+[debug] [2022-05-06T20:59:55.077Z] [hosting][hash queue][FINAL] {"max":181,"min":3,"avg":18.555555555555557,"active":0,"complete":18,"success":18,"errored":0,"retried":0,"total":18,"elapsed":187}
+[debug] [2022-05-06T20:59:55.078Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a:populateFiles [none]
+[debug] [2022-05-06T20:59:55.078Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a:populateFiles {"files":{"/cars.json":"b19e8de92530a634e0d9b13fa96031cb1eb902379d6c88df47aa0630e4ac9475","/favicon.ico":"eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/asset-manifest.json":"31b26631cd6a056e623f14e4efcc8ccb0b8ea5dcafbaac45897e7a90aabbd1c3","/index.html":"4d35305da52e152d6e6cbc5aba0532ef7e754dde1a6895a04b38ec4deeef454c","/static/js/787.137f9bb1.chunk.js":"0ed9cbb22a43bdaa0beeeb23419af8349c7c692a4b6ec86d2b4fa2017de5c582","/static/js/787.137f9bb1.chunk.js.map":"16902487fea445cedb16c5af5936fd88b029e5f4bf52b2354dc8477f99a9f2f8","/static/js/main.d4c3d15d.js.LICENSE.txt":"980850d0c97fc4da1718320dcc140b4bafb239b14275f3a5d9640098e064ab8a","/static/css/main.03d87d4b.css":"d527840c95d929070affaace33657ded3388284b7fa6a2b4b4f9c96279e6a900","/static/media/slider1.2ad45c5a41984917f40c.png":"13f215f3795cf6becb6961d8f3be4b4d33aecc88dcaca15267d6207c0696fddd","/static/media/slider3.2e99e3c39f23583154f1.png":"e1a8e4fe8b7c52a5458e566f3fcdb61b11dd646b5e36cb570d971a27017dffb1","/static/media/slider2.07d856fa3367f4cd3964.png":"2361935816681580b1739ff1e5e60f33250f9b0ea732e280b84c75c866f34097","/static/js/main.d4c3d15d.js":"ad7a8f5ac4ade33f63fc5c91cdf79ddbb6cb96368b51d552361c8696e23e07fe","/static/css/main.03d87d4b.css.map":"6736e040369230cb411c14e1ba8ca13c8604b8274ad892c903ef62c911b7feb6","/static/js/main.d4c3d15d.js.map":"92e074ed911129c822a508b788b535029b89457de2b549f9bd8eafa2e22bb93d"}}
+[debug] [2022-05-06T20:59:56.922Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a:populateFiles 200
+[debug] [2022-05-06T20:59:56.922Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a:populateFiles {"uploadRequiredHashes":["ad7a8f5ac4ade33f63fc5c91cdf79ddbb6cb96368b51d552361c8696e23e07fe","92e074ed911129c822a508b788b535029b89457de2b549f9bd8eafa2e22bb93d","4d35305da52e152d6e6cbc5aba0532ef7e754dde1a6895a04b38ec4deeef454c","31b26631cd6a056e623f14e4efcc8ccb0b8ea5dcafbaac45897e7a90aabbd1c3"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files"}
+[debug] [2022-05-06T20:59:56.924Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/ad7a8f5ac4ade33f63fc5c91cdf79ddbb6cb96368b51d552361c8696e23e07fe [none]
+[debug] [2022-05-06T20:59:56.925Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/ad7a8f5ac4ade33f63fc5c91cdf79ddbb6cb96368b51d552361c8696e23e07fe [stream]
+[debug] [2022-05-06T20:59:56.926Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/92e074ed911129c822a508b788b535029b89457de2b549f9bd8eafa2e22bb93d [none]
+[debug] [2022-05-06T20:59:56.926Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/92e074ed911129c822a508b788b535029b89457de2b549f9bd8eafa2e22bb93d [stream]
+[debug] [2022-05-06T20:59:56.927Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/4d35305da52e152d6e6cbc5aba0532ef7e754dde1a6895a04b38ec4deeef454c [none]
+[debug] [2022-05-06T20:59:56.927Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/4d35305da52e152d6e6cbc5aba0532ef7e754dde1a6895a04b38ec4deeef454c [stream]
+[debug] [2022-05-06T20:59:56.928Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/31b26631cd6a056e623f14e4efcc8ccb0b8ea5dcafbaac45897e7a90aabbd1c3 [none]
+[debug] [2022-05-06T20:59:56.928Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/31b26631cd6a056e623f14e4efcc8ccb0b8ea5dcafbaac45897e7a90aabbd1c3 [stream]
+[debug] [2022-05-06T20:59:56.929Z] [hosting][populate queue][FINAL] {"max":1849,"min":1849,"avg":1849,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1854}
+[debug] [2022-05-06T20:59:56.929Z] [hosting] uploads queued: 4
+[debug] [2022-05-06T20:59:59.051Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/31b26631cd6a056e623f14e4efcc8ccb0b8ea5dcafbaac45897e7a90aabbd1c3 200
+[debug] [2022-05-06T20:59:59.051Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/31b26631cd6a056e623f14e4efcc8ccb0b8ea5dcafbaac45897e7a90aabbd1c3 [stream]
+[debug] [2022-05-06T20:59:59.052Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/4d35305da52e152d6e6cbc5aba0532ef7e754dde1a6895a04b38ec4deeef454c 200
+[debug] [2022-05-06T20:59:59.052Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/4d35305da52e152d6e6cbc5aba0532ef7e754dde1a6895a04b38ec4deeef454c [stream]
+[debug] [2022-05-06T21:00:00.067Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/ad7a8f5ac4ade33f63fc5c91cdf79ddbb6cb96368b51d552361c8696e23e07fe 200
+[debug] [2022-05-06T21:00:00.067Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/ad7a8f5ac4ade33f63fc5c91cdf79ddbb6cb96368b51d552361c8696e23e07fe [stream]
+[debug] [2022-05-06T21:00:00.068Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/92e074ed911129c822a508b788b535029b89457de2b549f9bd8eafa2e22bb93d 200
+[debug] [2022-05-06T21:00:00.069Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/car-warehouse-b83ff/versions/3b27357764d7e63a/files/92e074ed911129c822a508b788b535029b89457de2b549f9bd8eafa2e22bb93d [stream]
+[debug] [2022-05-06T21:00:00.069Z] [hosting][upload queue][FINAL] {"max":3145,"min":2127,"avg":2636,"active":0,"complete":4,"success":4,"errored":0,"retried":0,"total":4,"elapsed":3146}
+[info] +  hosting[car-warehouse-b83ff]: file upload complete 
+[debug] [2022-05-06T21:00:00.070Z] [hosting] deploy completed after 5192ms
+[debug] [2022-05-06T21:00:00.073Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "car-warehouse-b83ff"
+    },
+    "site": "car-warehouse-b83ff",
+    "version": "projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a"
+  }
+]
+[info] i  hosting[car-warehouse-b83ff]: finalizing version... 
+[debug] [2022-05-06T21:00:00.075Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a updateMask=status
+[debug] [2022-05-06T21:00:00.075Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a {"status":"FINALIZED"}
+[debug] [2022-05-06T21:00:01.915Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a 200
+[debug] [2022-05-06T21:00:01.915Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a {"name":"projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-05-06T20:59:54.900754Z","createUser":{"email":"nazmul0w1@gmail.com"},"finalizeTime":"2022-05-06T21:00:02.273341Z","finalizeUser":{"email":"nazmul0w1@gmail.com"}}
+[debug] [2022-05-06T21:00:01.915Z] [hosting] finalized version for car-warehouse-b83ff:[object Object]
+[info] +  hosting[car-warehouse-b83ff]: version finalized 
+[info] i  hosting[car-warehouse-b83ff]: releasing new version... 
+[debug] [2022-05-06T21:00:01.918Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/releases versionName=projects%2F745261246151%2Fsites%2Fcar-warehouse-b83ff%2Fversions%2F3b27357764d7e63a
+[debug] [2022-05-06T21:00:01.918Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/releases {"message":null}
+[debug] [2022-05-06T21:00:03.780Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/releases 200
+[debug] [2022-05-06T21:00:03.780Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/745261246151/sites/car-warehouse-b83ff/releases {"name":"projects/745261246151/sites/car-warehouse-b83ff/releases/1651870803648524","version":{"name":"projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-05-06T20:59:54.900754Z","createUser":{"email":"nazmul0w1@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GgMppQegWNJ8lWKA4Xx85PEM9cEn7ADgtltT_Dw"},"finalizeTime":"2022-05-06T21:00:02.273341Z","finalizeUser":{"email":"nazmul0w1@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GgMppQegWNJ8lWKA4Xx85PEM9cEn7ADgtltT_Dw"}},"type":"DEPLOY","releaseTime":"2022-05-06T21:00:03.648524672Z","releaseUser":{"email":"nazmul0w1@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GgMppQegWNJ8lWKA4Xx85PEM9cEn7ADgtltT_Dw"}}
+[debug] [2022-05-06T21:00:03.780Z] [hosting] release: {"name":"projects/745261246151/sites/car-warehouse-b83ff/releases/1651870803648524","version":{"name":"projects/745261246151/sites/car-warehouse-b83ff/versions/3b27357764d7e63a","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-05-06T20:59:54.900754Z","createUser":{"email":"nazmul0w1@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GgMppQegWNJ8lWKA4Xx85PEM9cEn7ADgtltT_Dw"},"finalizeTime":"2022-05-06T21:00:02.273341Z","finalizeUser":{"email":"nazmul0w1@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GgMppQegWNJ8lWKA4Xx85PEM9cEn7ADgtltT_Dw"}},"type":"DEPLOY","releaseTime":"2022-05-06T21:00:03.648524672Z","releaseUser":{"email":"nazmul0w1@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GgMppQegWNJ8lWKA4Xx85PEM9cEn7ADgtltT_Dw"}}
+[info] +  hosting[car-warehouse-b83ff]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/car-warehouse-b83ff/overview
+[info] Hosting URL: https://car-warehouse-b83ff.web.app
