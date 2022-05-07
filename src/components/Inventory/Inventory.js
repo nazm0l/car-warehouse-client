@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
 import useCars from "../../hooks/useCars";
 import Items from "../Items/Items";
+import Loading from "../Shared/Loading/Loading";
 
 const Inventory = () => {
  
   const [cars] = useCars();
+  if(!cars.length){
+      return <Loading></Loading>
+  }
 
   return (
     <div>

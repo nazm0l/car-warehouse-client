@@ -2,6 +2,7 @@ import React from "react";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import useCars from "../../hooks/useCars";
+import Loading from "../Shared/Loading/Loading";
 
 const InventoryItem = () => {
   const [cars] = useCars();
@@ -9,6 +10,10 @@ const InventoryItem = () => {
 
   const updateCar = (_id) =>{
       navigate(`/inventory/${_id}`)
+  }
+
+  if(!cars.length){
+    return <Loading></Loading>
   }
 
   return (

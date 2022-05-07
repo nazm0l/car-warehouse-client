@@ -2,6 +2,7 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useCars from "../../hooks/useCars";
+import Loading from "../Shared/Loading/Loading";
 
 const ManageItem = () => {
   const [cars, setCars] = useCars();
@@ -22,6 +23,9 @@ const ManageItem = () => {
             setCars(remaining);
         })
     }
+}
+if(!cars.length){
+  return <Loading></Loading>
 }
   
   return (

@@ -45,7 +45,7 @@ const Login = () => {
   }
 
   if (loading) {
-    <Loading></Loading>
+    return <Loading></Loading>
   }
 
   let errorMessage;
