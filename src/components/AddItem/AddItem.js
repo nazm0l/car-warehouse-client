@@ -87,7 +87,7 @@ const AddItem = () => {
             </Form.Group>
 
             <Button className="w-100 fw-bold" variant="dark" type="submit">
-            Add Item
+            Restock Item
             </Button>
         </Form>
       </div>
