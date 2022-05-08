@@ -36,7 +36,7 @@ const Login = () => {
 
   if (user1) {
     console.log(user1.email);
-    const url = `http://localhost:5000/login`
+    const url = `https://salty-wave-00950.herokuapp.com/login`
     fetch(url, {
         method: "POST",
         headers: {

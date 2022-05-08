@@ -9,7 +9,7 @@ const SingleItem = () => {
   const [car, setCar] = useState({});
 
   useEffect(() => {
-    const url = `http://localhost:5000/cars/${id}`;
+    const url = `https://salty-wave-00950.herokuapp.com/cars/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setCar(data));
@@ -17,7 +17,7 @@ const SingleItem = () => {
 
   const handleQuantityDecrement = () => {
     const quantity = car.quantity - 1;
-    const url = `http://localhost:5000/cars/${id}`;
+    const url = `https://salty-wave-00950.herokuapp.com/cars/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -39,7 +39,7 @@ const SingleItem = () => {
     }
 
     const quantity = parseInt(car.quantity) + parseInt(add);
-    const url = `http://localhost:5000/cars/${id}`;
+    const url = `https://salty-wave-00950.herokuapp.com/cars/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

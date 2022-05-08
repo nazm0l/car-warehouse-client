@@ -26,7 +26,7 @@ const AddItem = () => {
         email: user.email
     }
 
-    fetch('http://localhost:5000/cars', {
+    fetch('https://salty-wave-00950.herokuapp.com/cars', {
         method: "POST",
         headers: {
           "content-type": "application/json",

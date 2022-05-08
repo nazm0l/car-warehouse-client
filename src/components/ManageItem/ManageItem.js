@@ -12,7 +12,7 @@ const ManageItem = () => {
     const proceed = window.confirm('Are you sure?')
 
     if(proceed){
-        const url = `http://localhost:5000/cars/${id}`
+        const url = `https://salty-wave-00950.herokuapp.com/cars/${id}`
         
         fetch(url, {
             method: 'DELETE'

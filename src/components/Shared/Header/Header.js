@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const logout = () => {
     signOut(auth);
@@ -17,7 +17,7 @@ const Header = () => {
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            <img src="hi" alt="logo" />
+            N&M Automobiles
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -43,9 +43,6 @@ const Header = () => {
               )}
               <Nav.Link as={Link} to="/blogs">
                 Blogs
-              </Nav.Link>
-              <Nav.Link as={Link} to="/about">
-                About
               </Nav.Link>
               {user ? (
                 <button

@@ -5,7 +5,6 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import NotFound from "./components/Shared/NotFound/NotFound";
 import Inventory from "./components/Inventory/Inventory";
-import About from "./components/About/About";
 import Footer from "./components/Shared/Footer/Footer";
 import Header from "./components/Shared/Header/Header";
 import Login from "./components/Authentication/Login/Login";
@@ -57,7 +56,6 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        <Route path="/about" element={<About></About>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
