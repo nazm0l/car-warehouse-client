@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useAuthState, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
@@ -12,6 +12,7 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
   const location = useLocation();
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,27 +23,7 @@ const Login = () => {
   };
 
   let from = location.state?.from?.pathname || "/";
-
-  if (user) {
-
-    const url = `http://localhost:5000/login`
-
-    fetch(url, {
-      method: 'POST',
-      body: JSON.stringify({
-        email: user.email
-      }),
-      headers: {
-        "content-type": "application/json",
-      }
-    })
-    .then(res => res.json())
-    .then(data =>{
-      localStorage.setItem("accessToken", data.token)
-      navigate(from, { replace: true });
-    })
-
-  }
+  const [user1] = useAuthState(auth);
 
   if (loading) {
     return <Loading></Loading>
@@ -52,6 +33,23 @@ const Login = () => {
   if (error) {
     errorMessage = <p className="text-danger">{error?.message}</p>;
   }
+
+  if (user1) {
+    console.log(user1.email);
+    const url = `http://localhost:5000/login`
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "content-type": "application/json",
+        },
+        body: JSON.stringify({ email: user1.email }),
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            localStorage.setItem("accessToken", data.token);
+            navigate(from, { replace: true });
+        });
+}
 
   return (
     <div className="container mt-5">

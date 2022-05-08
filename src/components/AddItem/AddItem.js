@@ -29,7 +29,6 @@ const AddItem = () => {
     fetch('http://localhost:5000/cars', {
         method: "POST",
         headers: {
-          'authorization':`${user.email} ${localStorage.getItem('accessToken')}`,
           "content-type": "application/json",
         },
         body: JSON.stringify(data),
@@ -87,7 +86,7 @@ const AddItem = () => {
             </Form.Group>
 
             <Button className="w-100 fw-bold" variant="dark" type="submit">
-            Restock Item
+            Add Item
             </Button>
         </Form>
       </div>

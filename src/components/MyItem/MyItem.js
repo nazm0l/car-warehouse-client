@@ -1,20 +1,44 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import axios from 'axios';
 
 const MyItem = () => {
   const [user] = useAuthState(auth);
   const [myItem, setMyItem] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const email = user.email;
-    const url = `http://localhost:5000/user?email=${email}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setMyItem(data));
-  }, [user]);
+
+    const getMyItems = async () => {
+      const email = user?.email;
+      const url = `http://localhost:5000/user?email=${email}`;
+      try {
+          const { data } = await axios.get(url, {
+              headers: {
+                  authorization: `Bearer ${localStorage.getItem(
+                      "accessToken"
+                  )}`,
+              },
+          });
+          setMyItem(data);
+      } catch (error) {
+          if (
+              error.response.status === 401 ||
+              error.response.status === 403
+          ) {
+              signOut(auth);
+              navigate("/login");
+              toast.error(error.message);
+          }
+      }
+  };
+  getMyItems();
+}, [user]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");

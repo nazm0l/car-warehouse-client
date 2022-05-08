@@ -101,7 +101,7 @@ const SingleItem = () => {
                   type="submit"
                   id="button-addon2"
                 >
-                  Add
+                  Restock
                 </button>
               </div>
             </form>
