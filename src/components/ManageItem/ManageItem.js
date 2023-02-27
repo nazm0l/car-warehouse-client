@@ -7,27 +7,26 @@ import Loading from "../Shared/Loading/Loading";
 const ManageItem = () => {
   const [cars, setCars] = useCars();
 
-  const handleDelete = (id) =>{
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure?");
 
-    const proceed = window.confirm('Are you sure?')
+    if (proceed) {
+      const url = `https://jade-frightened-hare.cyclic.app/cars/${id}`;
 
-    if(proceed){
-        const url = `https://salty-wave-00950.herokuapp.com/cars/${id}`
-        
-        fetch(url, {
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data => {
-            const remaining = cars.filter(car => car._id !== id);
-            setCars(remaining);
-        })
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const remaining = cars.filter((car) => car._id !== id);
+          setCars(remaining);
+        });
     }
-}
-if(!cars.length){
-  return <Loading></Loading>
-}
-  
+  };
+  if (!cars.length) {
+    return <Loading></Loading>;
+  }
+
   return (
     <div className="container">
       <h2 className="text-center my-3">Manage Item</h2>
@@ -43,17 +42,26 @@ if(!cars.length){
         </thead>
         <tbody>
           {cars.map((car) => (
-             <tr key={car._id}>
-               <td>{car.name}</td>
-               <td>{car.price}</td>
-               <td>{car.quantity}</td>
-               <td><button onClick={()=>handleDelete(car._id)} className="btn btn-link text-danger">Delete</button></td>
-             </tr>
+            <tr key={car._id}>
+              <td>{car.name}</td>
+              <td>{car.price}</td>
+              <td>{car.quantity}</td>
+              <td>
+                <button
+                  onClick={() => handleDelete(car._id)}
+                  className="btn btn-link text-danger"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
           ))}
         </tbody>
       </Table>
       <div className="container text-center mt-4">
-        <Link to='/additem'><button className="btn btn-dark w-25 py-2">Add new item</button></Link>
+        <Link to="/additem">
+          <button className="btn btn-dark w-25 py-2">Add new item</button>
+        </Link>
       </div>
     </div>
   );

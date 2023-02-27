@@ -5,7 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
-import axios from 'axios';
+import axios from "axios";
 
 const MyItem = () => {
   const [user] = useAuthState(auth);
@@ -13,38 +13,32 @@ const MyItem = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-
     const getMyItems = async () => {
       const email = user?.email;
-      const url = `https://salty-wave-00950.herokuapp.com/user?email=${email}`;
+      const url = `https://jade-frightened-hare.cyclic.app/user?email=${email}`;
       try {
-          const { data } = await axios.get(url, {
-              headers: {
-                  authorization: `Bearer ${localStorage.getItem(
-                      "accessToken"
-                  )}`,
-              },
-          });
-          setMyItem(data);
+        const { data } = await axios.get(url, {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        });
+        setMyItem(data);
       } catch (error) {
-          if (
-              error.response.status === 401 ||
-              error.response.status === 403
-          ) {
-              signOut(auth);
-              navigate("/login");
-              toast.error(error.message);
-          }
+        if (error.response.status === 401 || error.response.status === 403) {
+          signOut(auth);
+          navigate("/login");
+          toast.error(error.message);
+        }
       }
-  };
-  getMyItems();
-}, [user]);
+    };
+    getMyItems();
+  }, [user]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
 
     if (proceed) {
-      const url = `https://salty-wave-00950.herokuapp.com/cars/${id}`;
+      const url = `https://jade-frightened-hare.cyclic.app/cars/${id}`;
 
       fetch(url, {
         method: "DELETE",
@@ -54,7 +48,7 @@ const MyItem = () => {
           const remaining = myItem.filter((item) => item._id !== id);
           setMyItem(remaining);
         });
-        toast('Deleted Successfully')
+      toast("Deleted Successfully");
     }
   };
 
@@ -73,19 +67,19 @@ const MyItem = () => {
         </thead>
         <tbody>
           {myItem.map((item) => (
-              <tr key={item._id}>
-                <td>{item.name}</td>
-                <td>{item.price}</td>
-                <td>{item.quantity}</td>
-                <td>
-                  <button
-                    onClick={() => handleDelete(item._id)}
-                    className="btn btn-link text-danger"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
+            <tr key={item._id}>
+              <td>{item.name}</td>
+              <td>{item.price}</td>
+              <td>{item.quantity}</td>
+              <td>
+                <button
+                  onClick={() => handleDelete(item._id)}
+                  className="btn btn-link text-danger"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
           ))}
         </tbody>
       </Table>
